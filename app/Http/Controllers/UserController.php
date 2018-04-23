@@ -65,7 +65,7 @@ class UserController extends Controller
           $posts->updated_at = \Carbon\Carbon::now();
           $img = $request->file('file');
           $filename = time().'.'.$img->getClientOriginalName();
-          Image::make($img)->save( Storage_path('app\public\img'.$filename));
+          Image::make($img)->save( public_path('/img/post/'.$filename));
           $posts->file = $filename;
           $posts->save();
 
